@@ -4,4 +4,5 @@ You know it when you need it(i don't wanna ppl find out other than who I send to
 Chrome DevTool Overwrite
 ## Where Edited
 search comment ```fmc```
-
+## Disclaimer
+For learning and training purposes only, use offline only, commercial use is strictly prohibited, please delete within 24 hours.
