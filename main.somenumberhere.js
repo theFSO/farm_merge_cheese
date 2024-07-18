@@ -50,6 +50,28 @@
     form.appendChild(checkbox2);
     form.appendChild(label2);
     form.appendChild(document.createElement('br'));
+
+    // xp multiplier
+    const xpLabel = document.createElement('label');
+    xpLabel.htmlFor = 'xpInput';
+    xpLabel.innerText = '经验倍率1-100:';
+    form.appendChild(xpLabel);
+        
+    const xpInput = document.createElement('input');
+    xpInput.type = 'number';
+    xpInput.id = 'xpInput';
+    xpInput.min = '1';
+    xpInput.max = '100';
+    xpInput.step = '1';
+    xpInput.value = '1';
+    form.appendChild(xpInput);
+
+    xpInput.addEventListener('input', function() {
+        const value = xpInput.value;
+        if (value < 1 || !Number.isInteger(Number(value))) {
+          xpInput.value = '1';
+        }
+    });
     
     const dropdownLabel = document.createElement('label');
     dropdownLabel.htmlFor = 'dropdown';
@@ -76,12 +98,28 @@
     const option6 = document.createElement('option');
     option6.value = 'toolbox';
     option6.innerText = '大工具箱';
+    const option7 = document.createElement('option');
+    option7.value = 'tool_10';
+    option7.innerText = '十级工具'
+    const option8 = document.createElement('option');
+    option8.value = 'reward_crate_gold';
+    option8.innerText = '金色箱子'
+    const option9 = document.createElement('option');
+    option9.value = 'reward_crate_key_gold';
+    option9.innerText = '金色钥匙';
+    const option10 = document.createElement('option');
+    option10.value = 'ticket';
+    option10.innerText = '车票';
     dropdown.appendChild(option1);
     dropdown.appendChild(option2);
     dropdown.appendChild(option3);
     dropdown.appendChild(option4);
     dropdown.appendChild(option5);
     dropdown.appendChild(option6);
+    dropdown.appendChild(option7);
+    dropdown.appendChild(option8);
+    dropdown.appendChild(option9);
+    dropdown.appendChild(option10);
     form.appendChild(dropdown);
     
     menu.appendChild(form);
@@ -12265,8 +12303,10 @@
                     configurable: !0
                 }),
                 Object.defineProperty(t.prototype, "expReward", {
+                    // fmc
                     get: function() {
-                        return this._data.expReward
+                        const multiplier = Number(document.getElementById('xpInput').value) || 1;
+                        return this._data.expReward * multiplier;
                     },
                     enumerable: !1,
                     configurable: !0
@@ -60361,7 +60401,19 @@
                             }
                             break;
                         case 'toolbox':
-                            e._data.target = 'toolbox_large'
+                            e._data.target = 'toolbox_large';
+                            break;
+                        case 'tool_10':
+                            e._data.target = 'tool_10';
+                            break;
+                        case 'reward_crate_gold':
+                            e._data.target = 'reward_crate_gold';
+                            break;
+                        case 'reward_crate_key_gold':
+                            e._data.target = 'reward_crate_key_gold';
+                            break;
+                        case 'ticket':
+                            e._data.target = 'ticket';
                             break;
                     }
                     var t = "string" == typeof e.target ? e.target : this.services.randomLoot.getRandomItemFromWeightedArray("randomMergeResultContent", e.target, FE.MERGE);

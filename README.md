@@ -9,12 +9,16 @@ Chrome DevTool 本地覆盖
 
 #### 100%幸运合成 （多合一个）
 #### 体力宝石无消耗（个别东西宝石会消耗）
+#### 经验值倍率 （1-100倍）
 #### 合成表修改：
 - 任意物品合成满级金币
 - 任意物品合成满级宝石
 - 任意物品合成大工具箱
 - 作物动物自动满级
 - 销毁物品（合成后消失）
+- 十级工具
+- 金色箱子&钥匙
+- 车票
 
 ## Disclaimer
 For learning and training purposes only, use offline only, commercial use is strictly prohibited, please delete within 24 hours.
